@@ -97,3 +97,78 @@ ecomllm/
 ├── .env.local            # Environment variables
 ├── package.json
 └── README.md
+
+🛠️ Setup & Installation
+1. Clone the Repository
+git clone https://github.com/your-username/ecomllm.git
+cd ecomllm
+
+2. Install Dependencies
+npm install
+
+3. Add Environment Variables
+
+Create a .env.local file in the root directory:
+
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+GEMINI_API_KEY=your_gemini_api_key
+
+4. Run the Development Server
+npm run dev
+
+5. Access the App
+
+Open http://localhost:3000
+ in your browser.
+
+🧾 CSV File Format
+
+Upload your product data in .csv format:
+
+title,description,category,price,image_url,tags
+"Noise Cancelling Headphones","Over-ear ANC","audio",149.99,"https://...","wireless|anc"
+"Mechanical Keyboard","Hot-swap RGB","peripherals",89.00,"https://...","mechanical|rgb"
+
+🔮 Future Improvements
+
+ Add user authentication via Supabase Auth (Google/GitHub/email login)
+
+ Implement real-time behavioral tracking to improve AI recommendations
+
+ Build shopping cart + checkout flow
+
+ Refine Gemini prompt engineering for contextual recommendations
+
+ Use Supabase Edge Functions for server-side business logic
+
+📊 Example Flow
+
+User browses or clicks on a few products.
+
+Supabase logs events (view, click, etc.).
+
+/api/recommend triggers Gemini AI with behavioral data.
+
+Gemini ranks products and returns a short explanation.
+
+The frontend displays top recommendations with “Why this product?” details.
+
+🧩 Technical Highlights
+
+🔗 Next.js App Router for server actions and data fetching
+
+🧱 Supabase for structured product data and analytics logging
+
+🧠 Gemini AI for generating context-aware product reasoning
+
+⚙️ Session persistence with cookies
+
+💅 Tailwind CSS for a clean, responsive layout
+
+👨‍💻 Author
+
+Your Name
+🌐 GitHub: your-username
+
+💼 LinkedIn: your-linkedin
