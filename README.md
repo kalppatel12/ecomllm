@@ -37,5 +37,55 @@ This project showcases how to combine **modern full-stack web development** with
 
 ---
 
+ecomllm/
+├── app/ # Next.js App Router pages & API routes
+│ ├── api/
+│ │ └── recommend/ # API route for recommendations
+│ └── page.tsx # Homepage
+├── components/ # React components
+│ ├── ProductCard.tsx
+│ └── RecommendButton.tsx
+├── lib/ # Utility libraries
+│ ├── supabase.ts # Supabase client
+│ ├── gemini.ts # Gemini integration
+│ ├── recommend.ts # Recommendation logic
+│ └── session.ts # Session helper
+├── public/ # Static assets
+├── .env.local # Environment variables
+├── package.json
+└── README.md
+
+
+---
+
+## 🛠️ Setup & Installation  
+
+### 1. Clone the repo  
+```bash
+git clone https://github.com/your-username/ecomllm.git
+cd ecomllm
+
+
+---
+
+---
+
+## 🔮 Future Improvements  
+
+- [ ] Add **user authentication** with Supabase Auth (Google/GitHub/email login)  
+- [ ] Track **real browsing history** (events like view, click, add-to-cart) to improve recommendations  
+- [ ] Add **cart system + checkout flow** to simulate full e-commerce  
+- [ ] Enhance **Gemini prompts** for better, context-aware recommendations  
+- [ ] Deploy Supabase **Edge Functions** for faster server-side logic  
+
+---
+
+## 👨‍💻 Author  
+
+- **Your Name**  
+- GitHub: [your-username](https://github.com/your-username)  
+- LinkedIn: [your-linkedin](https://linkedin.com/in/your-profile)  
+
+
 ## 🗂️ Project Structure  
 
