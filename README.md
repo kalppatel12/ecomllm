@@ -36,6 +36,8 @@ This project showcases how to combine **modern full-stack web development** with
 - ✅ **Deployable on Vercel** with environment variables  
 
 ---
+## 🗂️ Project Structure  
+
 
 ecomllm/
 ├── app/ # Next.js App Router pages & API routes
