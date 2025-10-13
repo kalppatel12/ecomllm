@@ -1,21 +1,59 @@
 export type ProductProps = {
   id: string;
   title: string;
-  description?: string;
-  category?: string;
+  description?: string | null;
+  category?: string | null;
   price: number;
-  image_url?: string;
+  image_url?: string | null;
 };
 
 export default function ProductCard({ p }: { p: ProductProps }) {
   return (
-    <div className="border rounded-lg p-4 shadow-sm">
-      {p.image_url && (
-        <img src={p.image_url} alt={p.title} className="w-full h-40 object-cover rounded" />
-      )}
-      <h3 className="text-lg font-bold mt-2">{p.title}</h3>
-      <p className="text-sm text-gray-600">{p.category}</p>
-      <p className="text-gray-800 font-semibold">${p.price}</p>
+    <div className="group rounded-2xl border bg-white shadow-sm hover:shadow-lg transition duration-300 overflow-hidden">
+      {/* Product Image */}
+      <div className="relative w-full h-48 overflow-hidden">
+        {p.image_url ? (
+  <img
+    src={p.image_url}
+    alt={p.title}
+    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+  />
+) : (
+  <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+    <span className="text-black font-bold text-lg">No Image</span>
+  </div>
+)}
+
+
+        {/* Category Badge */}
+        {p.category && (
+          <span className="absolute top-2 right-2 bg-indigo-600 text-white text-xs font-medium px-2 py-1 rounded-full shadow">
+            {p.category}
+          </span>
+        )}
+      </div>
+
+      {/* Product Details */}
+      <div className="p-4 space-y-2">
+        {/* Title */}
+        <h3 className="font-semibold text-lg text-gray-900 line-clamp-1">
+          {p.title}
+        </h3>
+
+        {/* Description */}
+        {p.description && (
+          <p className="text-sm text-gray-600 line-clamp-2">
+            {p.description}
+          </p>
+        )}
+
+        {/* Price */}
+        <div className="pt-2">
+          <span className="text-xl font-bold text-emerald-600">
+            ${p.price.toFixed(2)}
+          </span>
+        </div>
+      </div>
     </div>
   );
 }
