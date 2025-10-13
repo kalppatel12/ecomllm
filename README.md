@@ -62,20 +62,6 @@ Users receive **personalized product suggestions** powered by **Gemini AI**, bas
 
 ---
 
-## 📸 Screenshots
-
-### 🏠 Homepage  
-- Displays trending products from Supabase.  
-- Personalized picks powered by Gemini AI.  
-
-![homepage preview](https://via.placeholder.com/600x300?text=Homepage+Preview)
-
-### 🤖 Recommendation Example  
-- Click **“Get Recommendations”** → Gemini ranks products and explains *why*.  
-
-![recommendation preview](https://via.placeholder.com/600x300?text=Recommendations+Preview)
-
----
 
 ## 🗂️ Project Structure
 
@@ -97,6 +83,7 @@ ecomllm/
 ├── .env.local            # Environment variables
 ├── package.json
 └── README.md
+---
 
 🛠️ Setup & Installation
 1. Clone the Repository
