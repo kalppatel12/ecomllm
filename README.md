@@ -38,25 +38,24 @@ This project showcases how to combine **modern full-stack web development** with
 ---
 ## 🗂️ Project Structure  
 
-
+```plaintext
 ecomllm/
-├── app/ # Next.js App Router pages & API routes
-│ ├── api/
-│ │ └── recommend/ # API route for recommendations
-│ └── page.tsx # Homepage
-├── components/ # React components
-│ ├── ProductCard.tsx
-│ └── RecommendButton.tsx
-├── lib/ # Utility libraries
-│ ├── supabase.ts # Supabase client
-│ ├── gemini.ts # Gemini integration
-│ ├── recommend.ts # Recommendation logic
-│ └── session.ts # Session helper
-├── public/ # Static assets
-├── .env.local # Environment variables
+├── app/                # Next.js App Router pages & API routes
+│   ├── api/
+│   │   └── recommend/  # API route for recommendations
+│   └── page.tsx        # Homepage
+├── components/         # React components
+│   ├── ProductCard.tsx
+│   └── RecommendButton.tsx
+├── lib/                # Utility libraries
+│   ├── supabase.ts     # Supabase client
+│   ├── gemini.ts       # Gemini integration
+│   ├── recommend.ts    # Recommendation logic
+│   └── session.ts      # Session helper
+├── public/             # Static assets
+├── .env.local          # Environment variables
 ├── package.json
 └── README.md
-
 
 ---
 
