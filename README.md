@@ -1,96 +1,99 @@
 # 🛒 E-commerce Product Recommender (Next.js + Supabase + Gemini AI)
 
-An AI-powered **E-commerce product recommender system** built with:  
-
-- ⚡ [Next.js 14 (App Router)](https://nextjs.org/docs/app)  
-- 🛠️ [Supabase](https://supabase.com/) (PostgreSQL database, events logging)  
-- 🤖 [Google Gemini AI](https://ai.google.dev/) (personalized recommendations)  
-- 🎨 [Tailwind CSS](https://tailwindcss.com/) (UI styling)  
-
-This project showcases how to combine **modern full-stack web development** with **AI-driven recommendations** in an e-commerce setting.  
+An AI-powered **E-commerce Product Recommender System** that merges **modern full-stack development** with **LLM-driven personalization** to create a next-gen shopping experience.  
 
 ---
 
-## 📸 Screenshots  
+## 🚀 Tech Stack
 
-### Homepage  
-- Popular products are fetched from the database (Supabase).  
-- Personalized picks are generated with Gemini AI.  
-
-![homepage preview](https://via.placeholder.com/600x300?text=Homepage+Preview)  
-
-### Recommendation Example  
-- Click "Get Recommendations" → Gemini ranks products and explains *why*.  
-
-![recommendation preview](https://via.placeholder.com/600x300?text=Recommendations+Preview)  
+| Layer | Technology |
+|-------|-------------|
+| **Frontend** | [Next.js 14 (App Router)](https://nextjs.org/docs/app), [Tailwind CSS](https://tailwindcss.com/) |
+| **Backend / Database** | [Supabase](https://supabase.com/) (PostgreSQL + Realtime + Auth) |
+| **AI Layer** | [Google Gemini AI](https://ai.google.dev/) |
+| **Deployment** | [Vercel](https://vercel.com/) |
 
 ---
 
-## ✨ Features  
+## 📖 Overview
 
-- ✅ **Browse products** (stored in Supabase `products` table)  
-- ✅ **Personalized recommendations** via Gemini AI (`/api/recommend`)  
-- ✅ **Session tracking** with cookies (`session_id`)  
-- ✅ **Events logging** (`view`, `click`, `add_to_cart`, `purchase`) in Supabase  
-- ✅ **Responsive UI** with Tailwind + Next.js App Router  
-- ✅ **Deployable on Vercel** with environment variables  
+This project demonstrates how to integrate **AI-based recommendation logic** into a **Next.js e-commerce platform**.  
+Users receive **personalized product suggestions** powered by **Gemini AI**, based on stored product data and simulated user interactions in Supabase.
 
 ---
-## 🗂️ Project Structure  
+
+## ✨ Key Features
+
+- ✅ **Browse products** stored in Supabase (`products` table)  
+- ✅ **AI-powered recommendations** via Gemini API (`/api/recommend`)  
+- ✅ **Session tracking** using cookies (`session_id`)  
+- ✅ **Event logging** (`view`, `click`, `add_to_cart`, `purchase`)  
+- ✅ **Responsive design** built with Tailwind CSS  
+- ✅ **Deployed seamlessly on Vercel**  
+- ✅ **CSV import support** for product data  
+
+---
+
+## 🧠 Objective
+
+**Combine recommendation logic with LLM-powered explanations for users.**
+
+### 🔹 Input
+- Product catalog (`.csv`)
+- User interaction events (views, clicks, purchases)
+
+### 🔹 Output
+- AI-generated recommendations (`product_id`, `title`, `reason`)
+- Natural-language explanation of *“Why this product?”*
+
+### 🔹 Example Prompt (for Gemini)
+> “Explain why product X is recommended to this user based on their browsing and purchase behavior.”
+
+---
+
+## 🧩 Scope of Work
+
+| Component | Description |
+|------------|-------------|
+| **Backend API** | Handles requests to `/api/recommend`, communicates with Supabase, and fetches personalized results. |
+| **Database** | Stores product catalog and user behavior logs. |
+| **LLM Integration** | Generates textual explanations for recommended products. |
+| **Frontend Dashboard** | Displays recommended items with reasoning, category filters, and visuals. |
+
+---
+
+## 📸 Screenshots
+
+### 🏠 Homepage  
+- Displays trending products from Supabase.  
+- Personalized picks powered by Gemini AI.  
+
+![homepage preview](https://via.placeholder.com/600x300?text=Homepage+Preview)
+
+### 🤖 Recommendation Example  
+- Click **“Get Recommendations”** → Gemini ranks products and explains *why*.  
+
+![recommendation preview](https://via.placeholder.com/600x300?text=Recommendations+Preview)
+
+---
+
+## 🗂️ Project Structure
 
 ```plaintext
 ecomllm/
-├── app/                # Next.js App Router pages & API routes
+├── app/                  # Next.js App Router pages & APIs
 │   ├── api/
-│   │   └── recommend/  # API route for recommendations
-│   └── page.tsx        # Homepage
-├── components/         # React components
+│   │   └── recommend/    # AI recommendation endpoint
+│   └── page.tsx          # Homepage
+├── components/           # UI Components
 │   ├── ProductCard.tsx
 │   └── RecommendButton.tsx
-├── lib/                # Utility libraries
-│   ├── supabase.ts     # Supabase client
-│   ├── gemini.ts       # Gemini integration
-│   ├── recommend.ts    # Recommendation logic
-│   └── session.ts      # Session helper
-├── public/             # Static assets
-├── .env.local          # Environment variables
+├── lib/                  # Core logic and integrations
+│   ├── supabase.ts       # Supabase client
+│   ├── gemini.ts         # Gemini AI integration
+│   ├── recommend.ts      # Recommendation logic
+│   └── session.ts        # Session management
+├── public/               # Static assets
+├── .env.local            # Environment variables
 ├── package.json
 └── README.md
-
----
-
-## 🛠️ Setup & Installation  
-
-### 1. Clone the repo  
-```bash
-git clone https://github.com/your-username/ecomllm.git
-cd ecomllm
-
-
----
-
----
-
-## 🔮 Future Improvements  
-
-- [ ] Add **user authentication** with Supabase Auth (Google/GitHub/email login)  
-- [ ] Track **real browsing history** (events like view, click, add-to-cart) to improve recommendations  
-- [ ] Add **cart system + checkout flow** to simulate full e-commerce  
-- [ ] Enhance **Gemini prompts** for better, context-aware recommendations  
-- [ ] Deploy Supabase **Edge Functions** for faster server-side logic  
-
----
-## .csv file format
-title,description,category,price,image_url,tags
-"Noise Cancelling Headphones","Over-ear ANC","audio",149.99,"https://...","wireless|anc"
-"Mechanical Keyboard","Hot-swap RGB","peripherals",89.00,"https://...","mechanical|rgb"
-
-## 👨‍💻 Author  
-
-- **Your Name**  
-- GitHub: [your-username](https://github.com/your-username)  
-- LinkedIn: [your-linkedin](https://linkedin.com/in/your-profile)  
-
-
-## 🗂️ Project Structure  
-
