@@ -1,54 +1,48 @@
-import { prisma } from "./prisma";
-import { explainRecommendation, Product } from "./gemini";
-import { ProductProps } from "@/components/ProductCard";
+import { supabase } from "@/lib/supabase";
+import { getRecommendationsFromGemini, Product } from "@/lib/gemini";
+import { getOrCreateSessionId } from "@/lib/session";
 
-export async function getRecommendations(sessionId?: string, limit = 5) {
-  // Recent events
-  const recent = await prisma.event.findMany({
-    where: { sessionId },
-    orderBy: { createdAt: "desc" },
-    take: 5,
-    include: { product: true },
-  });
+/**
+ * Fetch recommended products for a given session
+ */
+export async function getRecommendations(
+  limit: number = 3
+): Promise<{ product: Product; why: string }[]> {
+  // Get current session
+  const sessionId = getOrCreateSessionId();
 
-  let category: string | null = null;
-  if (recent.length > 0) category = recent[0].product.category ?? null;
+  // Fetch all products from Supabase
+  const { data: products, error } = await supabase
+    .from("products")
+    .select("*");
 
-  // Query products
-  let rawProducts = [];
-  if (category) {
-    rawProducts = await prisma.product.findMany({
-      where: { category },
-      orderBy: { popularity: "desc" },
-      take: limit,
-    });
-  }
-  if (!rawProducts.length) {
-    rawProducts = await prisma.product.findMany({
-      orderBy: { popularity: "desc" },
-      take: limit,
-    });
+  if (error || !products) {
+    console.error("Error fetching products:", error?.message);
+    return [];
   }
 
-  // Normalize to ProductProps
-  const products: ProductProps[] = rawProducts.map((p: Product) => ({
-  id: p.id,
-  title: p.title,
-  description: p.description,
-  category: p.category,
-  price: Number(p.price),
-  imageUrl: p.imageUrl,
-}));
+  // Generate recommendations using Gemini
+  const recommendedProducts = await getRecommendationsFromGemini(products, limit);
 
-  const behaviorSummary = category
-    ? `User recently viewed ${category} items.`
-    : "Showing popular items.";
+  // Log recommendations as "view" events in Supabase
+  for (const product of recommendedProducts) {
+    await supabase.from("events").insert({
+      session_id: sessionId,
+      product_id: product.id,
+      type: "view",
+    });
+  }
 
-  // Ask Gemini for explanation
-  return await Promise.all(
-    products.map(async (p) => ({
-      product: p,
-      why: await explainRecommendation(p, behaviorSummary),
-    }))
-  );
+  // Return products with explanation
+  return recommendedProducts.map((p) => ({
+    product: {
+      id: p.id,
+      title: p.title,
+      description: p.description,
+      category: p.category,
+      price: Number(p.price),
+      image_url: p.image_url,
+    },
+    why: `Recommended because Gemini ranked this as relevant.`
+  }));
 }
