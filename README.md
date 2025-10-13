@@ -80,6 +80,10 @@ cd ecomllm
 - [ ] Deploy Supabase **Edge Functions** for faster server-side logic  
 
 ---
+## .csv file format
+title,description,category,price,image_url,tags
+"Noise Cancelling Headphones","Over-ear ANC","audio",149.99,"https://...","wireless|anc"
+"Mechanical Keyboard","Hot-swap RGB","peripherals",89.00,"https://...","mechanical|rgb"
 
 ## 👨‍💻 Author  
 
