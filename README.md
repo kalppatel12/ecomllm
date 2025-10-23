@@ -81,6 +81,10 @@ title,description,category,price,image_url,tags
 Open [https://drive.google.com/file/d/1OBjFSemrsaqGqOoHxN7diTYSHc3uxFro/view?usp=sharing](https://drive.google.com/file/d/1OBjFSemrsaqGqOoHxN7diTYSHc3uxFro/view?usp=sharing) in your browser.
 
 ---
+### 🔹Video Demo Link
+Open [https://drive.google.com/file/d/1WAJWCBx6ZWORsg3oBxCkDKW9JczcYhJO/view](https://drive.google.com/file/d/1WAJWCBx6ZWORsg3oBxCkDKW9JczcYhJO/view) in your browser.
+
+---
 
 ## 🔮 Future Improvements
 - Add user authentication via Supabase Auth (Google/GitHub/email login)  
