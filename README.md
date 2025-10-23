@@ -77,10 +77,9 @@ title,description,category,price,image_url,tags
 "Noise Cancelling Headphones","Over-ear ANC","audio",149.99,"https://...","wireless|anc"
 "Mechanical Keyboard","Hot-swap RGB","peripherals",89.00,"https://...","mechanical|rgb"
 ```
-### 🔹 Sample CSV File Link
-```csv
-"https://drive.google.com/file/d/1OBjFSemrsaqGqOoHxN7diTYSHc3uxFro/view?usp=sharing"
-```
+### 🔹 Download Sample CSV File from here 
+Open [https://drive.google.com/file/d/1OBjFSemrsaqGqOoHxN7diTYSHc3uxFro/view?usp=sharing](https://drive.google.com/file/d/1OBjFSemrsaqGqOoHxN7diTYSHc3uxFro/view?usp=sharing) in your browser.
+
 ---
 
 ## 🔮 Future Improvements
